@@ -7,13 +7,13 @@ namespace DesignPattern
     {
         static void Main(string[] args)
         {
-            Singleton fromEmployee = new Singleton();
+            Singleton fromEmployee = Singleton.GetInstance;
             fromEmployee.PrintDetails("From Employee");
 
-            Singleton fromStudent = new Singleton();
+            Singleton fromStudent = Singleton.GetInstance;
             fromStudent.PrintDetails("From Student");
 
-            Console.ReadLine();
+            Console.ReadKey();
         }
     }
 }
