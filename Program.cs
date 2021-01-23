@@ -13,6 +13,8 @@ namespace DesignPattern
             Singleton fromStudent = Singleton.GetInstance;
             fromStudent.PrintDetails("From Student");
 
+            //Singleton.Derived derived = new Singleton.Derived();
+
             Console.ReadKey();
         }
     }

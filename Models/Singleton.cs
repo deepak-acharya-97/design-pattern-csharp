@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DesignPattern.Models
 {
-    class Singleton
+    sealed class Singleton
     {
         private static int counter = 0;
         private static Singleton instance = null;
@@ -30,5 +30,10 @@ namespace DesignPattern.Models
         {
             Console.WriteLine(message);
         }
+
+        //public class Derived : Singleton
+        //{
+
+        //}
     }
 }
