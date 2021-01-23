@@ -1,5 +1,6 @@
 ﻿using DesignPattern.Models;
 using System;
+using System.Threading.Tasks;
 
 namespace DesignPattern
 {
@@ -7,15 +8,28 @@ namespace DesignPattern
     {
         static void Main(string[] args)
         {
-            Singleton fromEmployee = Singleton.GetInstance;
-            fromEmployee.PrintDetails("From Employee");
-
-            Singleton fromStudent = Singleton.GetInstance;
-            fromStudent.PrintDetails("From Student");
-
             //Singleton.Derived derived = new Singleton.Derived();
-
+            Parallel.Invoke(() =>
+            {
+                PrintEmployeeDetails();
+            },
+            () =>
+            {
+                PrintStudentDetails();
+            });
             Console.ReadKey();
+        }
+
+        private static void PrintStudentDetails()
+        {
+            Singleton fromStudent = Singleton.GetSingletonEagerLazy;
+            fromStudent.PrintDetails("From Student");
+        }
+
+        private static void PrintEmployeeDetails()
+        {
+            Singleton fromEmployee = Singleton.GetSingletonEagerLazy;
+            fromEmployee.PrintDetails("From Employee");
         }
     }
 }

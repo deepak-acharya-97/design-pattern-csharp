@@ -8,15 +8,28 @@ namespace DesignPattern.Models
     {
         private static int counter = 0;
         private static Singleton instance = null;
+        private static readonly object obj = new object();
+        private static readonly Lazy<Singleton> _instance = new Lazy<Singleton>(() => new Singleton());
         public static Singleton GetInstance
         {
             get
             {
-                if(instance == null)
+                lock (obj)
                 {
-                    instance = new Singleton();
+                    if (instance == null)
+                    {
+                        instance = new Singleton();
+                    }
                 }
                 return instance;
+            }
+        }
+
+        public static Singleton GetSingletonEagerLazy
+        {
+            get
+            {
+                return _instance.Value;
             }
         }
 
