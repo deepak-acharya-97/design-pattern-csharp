@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DesignPattern.Models;
+using System;
 
 namespace DesignPattern
 {
@@ -6,7 +7,13 @@ namespace DesignPattern
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Singleton fromEmployee = new Singleton();
+            fromEmployee.PrintDetails("From Employee");
+
+            Singleton fromStudent = new Singleton();
+            fromStudent.PrintDetails("From Student");
+
+            Console.ReadLine();
         }
     }
 }
